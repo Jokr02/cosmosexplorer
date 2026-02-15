@@ -1,0 +1,82 @@
+[
+    {
+        "id": "sol",
+        "name": "Sun",
+        "spectralClass": "G2V",
+        "mass": 1.0,
+        "radius": 1.0,
+        "temperature": 5778,
+        "distance": 0,
+        "coordinates": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "planets": 8,
+        "description": "The star around which the Earth orbits."
+    },
+    {
+        "id": "alpha-centauri-a",
+        "name": "Alpha Centauri A",
+        "spectralClass": "G2V",
+        "mass": 1.1,
+        "radius": 1.2,
+        "temperature": 5790,
+        "distance": 4.37,
+        "coordinates": {
+            "x": 20,
+            "y": 5,
+            "z": -10
+        },
+        "planets": 0,
+        "description": "The closest star system to the Solar System."
+    },
+    {
+        "id": "sirius-a",
+        "name": "Sirius A",
+        "spectralClass": "A1V",
+        "mass": 2.02,
+        "radius": 1.71,
+        "temperature": 9940,
+        "distance": 8.6,
+        "coordinates": {
+            "x": -15,
+            "y": 30,
+            "z": 5
+        },
+        "planets": 0,
+        "description": "The brightest star in the night sky."
+    },
+    {
+        "id": "kepler-186",
+        "name": "Kepler-186",
+        "spectralClass": "M1V",
+        "mass": 0.54,
+        "radius": 0.52,
+        "temperature": 3755,
+        "distance": 582,
+        "coordinates": {
+            "x": 100,
+            "y": -50,
+            "z": 200
+        },
+        "planets": 5,
+        "description": "Known for having an Earth-sized planet in its habitable zone."
+    },
+    {
+        "id": "sagittarius-a",
+        "name": "Sagittarius A*",
+        "spectralClass": "Black Hole",
+        "mass": 4000000,
+        "radius": 44,
+        "temperature": 0,
+        "distance": 26000,
+        "coordinates": {
+            "x": 0,
+            "y": 0,
+            "z": -5000
+        },
+        "planets": 0,
+        "description": "The supermassive black hole at the Galactic Center."
+    }
+]

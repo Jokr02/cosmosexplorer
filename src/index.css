@@ -1,0 +1,436 @@
+@import "tailwindcss";
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+}
+
+/* ─── CUSTOM SCROLLBAR ──────────────────────────────────────────── */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(6, 182, 212, 0.3);
+  border-radius: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(6, 182, 212, 0.6);
+}
+
+/* ─── SCAN LINE EFFECT ──────────────────────────────────────────── */
+@keyframes scanlines {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 0 4px;
+  }
+}
+
+.scanlines::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg,
+      rgba(6, 182, 212, 0.03) 0px,
+      rgba(6, 182, 212, 0.03) 1px,
+      transparent 1px,
+      transparent 4px);
+  animation: scanlines 0.2s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ─── GLITCH TEXT EFFECT ────────────────────────────────────────── */
+@keyframes glitch {
+
+  0%,
+  90%,
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+
+  92% {
+    opacity: 0.8;
+    transform: translate(-2px, 1px);
+    filter: hue-rotate(90deg);
+  }
+
+  94% {
+    opacity: 0.9;
+    transform: translate(2px, -1px);
+    filter: hue-rotate(-90deg);
+  }
+
+  96% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+.glitch-text {
+  animation: glitch 4s ease-in-out infinite;
+}
+
+/* ─── PULSE GLOW ────────────────────────────────────────────────── */
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(6, 182, 212, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.5), 0 0 30px rgba(6, 182, 212, 0.2);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* ─── BREATHING BORDER ──────────────────────────────────────────── */
+@keyframes breathe-border {
+
+  0%,
+  100% {
+    border-color: rgba(6, 182, 212, 0.2);
+  }
+
+  50% {
+    border-color: rgba(6, 182, 212, 0.6);
+  }
+}
+
+.breathe-border {
+  animation: breathe-border 4s ease-in-out infinite;
+}
+
+/* ─── RADAR SWEEP ───────────────────────────────────────────────── */
+@keyframes radar-sweep {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.radar-sweep {
+  animation: radar-sweep 3s linear infinite;
+}
+
+/* ─── TYPEWRITER CURSOR ──────────────────────────────────────────── */
+@keyframes blink-cursor {
+
+  0%,
+  100% {
+    border-color: rgba(6, 182, 212, 0.8);
+  }
+
+  50% {
+    border-color: transparent;
+  }
+}
+
+.typewriter-cursor {
+  border-right: 2px solid rgba(6, 182, 212, 0.8);
+  animation: blink-cursor 0.8s step-end infinite;
+}
+
+/* ─── STAT BAR FILL ──────────────────────────────────────────────── */
+@keyframes fill-bar {
+  from {
+    width: 0%;
+  }
+}
+
+.stat-bar-fill {
+  animation: fill-bar 1s ease-out forwards;
+}
+
+/* ─── LOADING SCREEN ─────────────────────────────────────────────── */
+@keyframes logo-letter {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(4px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes loading-progress {
+  0% {
+    width: 0%;
+  }
+
+  80% {
+    width: 90%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes fade-out-screen {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+@keyframes status-pulse {
+
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.loading-progress-bar {
+  animation: loading-progress 2.5s ease-out forwards;
+}
+
+.status-pulse {
+  animation: status-pulse 1.2s ease-in-out infinite;
+}
+
+/* ─── SLIDE IN ANIMATIONS ────────────────────────────────────────── */
+@keyframes slide-in-right {
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.5s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.4s ease-out forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-delayed {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  50% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+.animate-fade-in-delayed {
+  animation: fade-in-delayed 0.8s ease-out forwards;
+}
+
+/* ─── PHYSICS ACADEMY FORMULA BLOCK ────────────────────────────── */
+.formula-block {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  background: rgba(30, 58, 138, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-left: 4px solid #3b82f6;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  box-shadow: inset 0 0 20px rgba(59, 130, 246, 0.1);
+}
+
+.formula-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #60a5fa;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.formula-latex {
+  font-size: 1.1rem;
+  color: #eff6ff;
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  padding: 0.5rem 0;
+}
+
+/* Custom Scrollbar for Formula blocks */
+.formula-latex::-webkit-scrollbar {
+  height: 4px;
+}
+
+.formula-latex::-webkit-scrollbar-track {
+  background: rgba(30, 58, 138, 0.1);
+  border-radius: 2px;
+}
+
+.formula-latex::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.4);
+  border-radius: 2px;
+}
+
+.formula-latex::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.6);
+}
+
+.category-badge-Classical {
+  border-color: rgba(6, 182, 212, 0.4);
+  color: #22d3ee;
+}
+
+.category-badge-Relativity {
+  border-color: rgba(234, 179, 8, 0.4);
+  color: #facc15;
+}
+
+.category-badge-Quantum {
+  border-color: rgba(168, 85, 247, 0.4);
+  color: #c084fc;
+}
+
+.category-badge-Cosmology {
+  border-color: rgba(59, 130, 246, 0.4);
+  color: #60a5fa;
+}
+
+.category-badge-Stellar {
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #f87171;
+}
+
+/* ─── GAUGE ANIMATION ────────────────────────────────────────────── */
+@keyframes gauge-pulse {
+
+  0%,
+  100% {
+    width: 70%;
+  }
+
+  30% {
+    width: 78%;
+  }
+
+  60% {
+    width: 72%;
+  }
+}
+
+@keyframes gauge-shield {
+
+  0%,
+  100% {
+    width: 100%;
+  }
+
+  50% {
+    width: 97%;
+  }
+}
+
+.gauge-thrust {
+  animation: gauge-pulse 3s ease-in-out infinite;
+}
+
+.gauge-shield {
+  animation: gauge-shield 5s ease-in-out infinite;
+}
+
+/* ─── LED STATUS INDICATOR ─────────────────────────────────────── */
+@keyframes led-blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.led-active {
+  animation: led-blink 2s ease-in-out infinite;
+}
+
+/* ─── NUMBER TICK ────────────────────────────────────────────────── */
+@keyframes number-tick {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.number-tick {
+  animation: number-tick 0.3s ease-out;
+}
